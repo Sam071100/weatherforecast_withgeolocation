@@ -34,10 +34,10 @@ class _HomescreenState extends State<Homescreen> {
       final lon = position.longitude;
 
       final weatherResponse = await http.get(Uri.parse(
-          'https://api.openweathermap.org/data/2.5/weather?APPID=7c527bceebadff9006977cf598974a9f&lat=${lat.toString()}&lon=${lon.toString()}'));
+          'https://api.openweathermap.org/data/2.5/weather?APPID=7c527bceebadff9006977cf598974a9f&lat=${lat.toString()}&lon=${lon.toString()}&units=metric'));
 
       final forecastResponse = await http.get(Uri.parse(
-          'https://api.openweathermap.org/data/2.5/forecast?APPID=7c527bceebadff9006977cf598974a9f&lat=${lat.toString()}&lon=${lon.toString()}'));
+          'https://api.openweathermap.org/data/2.5/forecast?APPID=7c527bceebadff9006977cf598974a9f&lat=${lat.toString()}&lon=${lon.toString()}&units=metric'));
 
       if (weatherResponse.statusCode == 200 &&
           forecastResponse.statusCode == 200) {
