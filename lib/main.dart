@@ -5,12 +5,7 @@ import 'package:weatherforecast_withgeolocation/theme/theme.dart';
 
 void main() => runApp(WeatherApp());
 
-class WeatherApp extends StatefulWidget {
-  @override
-  _WeatherAppState createState() => _WeatherAppState();
-}
-
-class _WeatherAppState extends State<WeatherApp> {
+class WeatherApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
