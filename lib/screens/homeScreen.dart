@@ -17,12 +17,21 @@ class _HomescreenState extends State<Homescreen> {
   WeatherData weatherData;
   ForecastData forecastData;
   String myvar = 'visakhapatnam';
-  int counter = 0;
+  static int counter = 0;
   String citi;
   void setCiti() {
     setState(() {
       counter++;
       citi = myvar;
+      loadWeather();
+    });
+  }
+
+  final fieldText = TextEditingController();
+  void location() {
+    setState(() {
+      counter = 0;
+      fieldText.clear();
       loadWeather();
     });
   }
@@ -87,6 +96,15 @@ class _HomescreenState extends State<Homescreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Weather App'),
+        leading: IconButton(
+          onPressed: location,
+          icon: Icon(
+            Icons.my_location_outlined,
+            color: Colors.black,
+          ),
+          splashColor: Colors.red,
+          tooltip: 'Current Location',
+        ),
       ),
       body: Center(
         child: Column(
@@ -99,6 +117,7 @@ class _HomescreenState extends State<Homescreen> {
                   myvar = text;
                 },
                 maxLines: 1,
+                controller: fieldText,
                 decoration: InputDecoration(
                     hintText: 'Enter City Name',
                     labelText: 'City',
@@ -157,14 +176,29 @@ class _HomescreenState extends State<Homescreen> {
                                   weather: forecastData.list.elementAt(index))),
                         )
                       : Container(
-                          child: Text(
-                            "Weather APP\n version: 1.0",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 25.0,
-                                fontFamily: "Times New Roman",
-                                fontWeight: FontWeight.w500,
-                                decoration: TextDecoration.underline),
+                          child: Column(
+                            children: <Widget>[
+                              Text(
+                                "Weather APP",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 25.0,
+                                    fontFamily: "Times New Roman",
+                                    fontWeight: FontWeight.w500,
+                                    decoration: TextDecoration.underline),
+                              ),
+                              SizedBox(height: 15),
+                              Text(
+                                "version: 1.2",
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 15.0,
+                                  fontFamily: "Times New Roman",
+                                  fontWeight: FontWeight.w600,
+                                  //  decoration: TextDecoration.underline
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                 ),
