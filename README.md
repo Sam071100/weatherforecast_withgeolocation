@@ -1,6 +1,6 @@
 # weatherforecast_withgeolocation
 
-We need to make the app to show the weather for the current location, so we end up with something useful for the entire world, don’t you think?
+We need to make the app to show the weather for the current location, so I end up with something useful for the entire world, don’t you think?
 
 ## Getting Started
 
